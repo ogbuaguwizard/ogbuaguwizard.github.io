@@ -1,0 +1,167 @@
+
+
+.container{
+    position: absolute;
+}
+/*colums containing the group name*/
+td,.grpname{
+    font-weight: lighter;
+    font-size: 13px; 
+    text-align: center;
+    border: none;
+    color: #000;
+    text-shadow: none;
+}
+
+/*empty colums*/
+.empty{
+    border:none;
+}
+table{
+    margin: auto;
+    border:none;
+    border-spacing: 1px;
+    -webkit-border-horizontal-spacing: 1px;
+    -webkit-border-vertical-spacing: 2px;
+    -moz-border-horizontal-spacing: 1px;
+    -moz-border-vertical-spacing: 2px;
+    -o-border-horizontal-spacing: 1px;
+    -o-border-vertical-spacing: 2px;
+}
+
+/*element name*/
+.element{
+    font-size:11px;
+    text-align: center;
+    margin:0%;
+    padding: 0%;
+    background-color: #a4a1a2;
+    color: #000000;
+    text-shadow: none;
+
+}
+
+/*all colums*/
+td{
+    width:73px;
+    height:48px;
+    text-align: center;
+    line-height: 10px; 
+    color: #ffffff;
+    border:3px,solid,#000000;
+    margin-right :3px;
+    padding: 0%;
+    cursor: pointer;
+    -webkit-text-stroke: 0.25px #000000;
+    text-shadow:
+        1px  1px 0 #000,
+       -1px -1px 0 #000,
+        1px -1px 0 #000,
+       -1px  1px 0 #000,
+        1px  1px 0 #000;
+}
+
+.f{
+    padding-top: 8px;
+    margin: auto;
+}
+
+/*the original position of the f block series*/
+.f-position{
+    font-weight: lighter;
+    font-size: 9px;
+    text-align: center;
+}
+b{
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 20px;
+}
+/*reduce superscript size*/
+sup{
+    font-size: 8px;
+}
+/*alkaline metals*/
+.akali_metal{
+    background-color: #655b73;
+}
+/*alkaline Earth*/
+.alkaline_earth{
+    background-color:#595967;
+}
+/*lanthanide series*/
+.l_series{
+    background-color: #c28399;
+}
+/*Actinide series*/
+.a_series{
+    background-color: #ce5575;
+}
+/*Noble gases*/
+.noble_gas{
+    background-color: #a4333e;
+}
+/*Halogens*/
+.halogen{
+    background-color: #b3793f;
+}
+/*Non Metals*/
+.none_metals{
+    background-color: #aba84c;
+}
+/*Semi Metals*/
+.semimetal{
+    background-color: #5a8e68;
+}
+/*Basic Metals*/
+.basic_metal{
+    background-color: #53919e;
+}
+/*Transition Metals*/
+.transition{
+    background-color: #4f87b4;
+}
+
+
+
+/* css code for pop ups */
+
+.infoContainer{
+    display:none;
+    position:fixed;
+    z-index: 1;
+    padding-top:50px;
+    margin-top:-19px;
+    top: 0;
+    
+    width:100%;
+    height:100%;
+    overflow:auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.8);
+
+}
+.innerContainer{
+    position:relative;
+    background-color:#e95959;
+    margin:30% auto;
+    padding-bottom:10px;
+    border:1px solid #888;
+    width:50%;
+    text-align: center;
+    font-weight: bold;
+    box-shadow:0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s;
+}
+
+@-webkit-keyframes animatetop{
+    from{top:-300px; opacity:0}
+    t0{top:0; opacity:1}
+}
+@keyframes animatetop {
+    from{top:-300px; opacity:0}
+    t0{top:0; opacity:1}
+}

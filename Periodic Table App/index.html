@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>The Periodic Table</title>
+        <link rel="stylesheet" href="css/prtstyle.css">
+        <script src="js/jquery-3.3.1.js"></script>
+        <script src="js/prtscript.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="spd">
+                
+                    <table border="1">
+                        <tr>
+                            <td class="grpname">1<br>1A</td>
+                            <td colspan="16" class="empty"></td>
+                            <td class="grpname">18<br>8A</td>
+                        </tr>
+                        <tr>
+                            <td id="H" class="none_metals"><b><sup>1</sup>H</b><p class="element"></p></td>
+                            <td class="grpname">2<br>2A</td>
+                            <td colspan="10" class="empty"> </td>
+                            <td class="grpname">13<br>3A</td>
+                            <td class="grpname">14<br>4A</td>
+                            <td class="grpname">15<br>5A</td>
+                            <td class="grpname">16<br>6A</td>
+                            <td class="grpname">17<br>7A</td>
+                            <td id="He" class="noble_gas"><b><sup>2</sup>He</b><p class="element"></p></td>
+                        </tr>
+                        <tr>
+                            <td id="Li" class="akali_metal"><b><sup>3</sup>li</b><p class="element"></p></td>
+                            <td id="Be" class="alkaline_earth"><b><sup>4</sup>Be</b><p class="element"></p></td>
+                            <td colspan="10" class="empty"> </td>
+                            <td id="B" class="semimetal"><b><sup>5</sup> B</b><p class="element"></p></td>
+                            <td id="C" class="none_metals"><b><sup>6</sup> C</b><p class="element"></p></td>
+                            <td id="N" class="none_metals"><b><sup>7</sup> N</b><p class="element"></p></td>
+                            <td id="O" class="none_metals"><b><sup>8</sup> O</b><p class="element"></p></td>
+                            <td id="F" class="halogen"><b><sup>9</sup> F</b><p class="element"></p></td>
+                            <td id="Ne" class="noble_gas"><b><sup>10</sup>Ne</b><p class="element"></p></td>
+                        </tr>
+                        <tr>
+                            <td id="Na" class="akali_metal"><b><sup>11</sup>Na</b><p class="element"></p></td>
+                            <td id="Mg" class="alkaline_earth"><b><sup>12</sup>Mg</b><p class="element"></p></td>
+                            <td class="grpname">3<br>3B</td>
+                            <td class="grpname">4<br>4B</td>
+                            <td class="grpname">5<br>5B</td>
+                            <td class="grpname">6<br>6B</td>
+                            <td class="grpname">7<br>7B</td>
+                            <td class="grpname">8<br>8B</td>
+                            <td class="grpname">9<br>8B</td>
+                            <td class="grpname">10<br>8B</td>
+                            <td class="grpname">11<br>1B</td>
+                            <td class="grpname">12<br>2B</td>
+                            <td id="Al" class="basic_metal"><b><sup>13</sup>Al</b><p class="element"></p></td>
+                            <td id="Si" class="semimetal"><b><sup>14</sup>Si</b><p class="element"></p></td>
+                            <td id="P" class="none_metals"><b><sup>15</sup> P</b><p class="element"></p></td>
+                            <td id="S" class="none_metals"><b><sup>16</sup> S</b><p class="element"></p></td>
+                            <td id="Cl" class="halogen"><b><sup>17</sup>Cl</b><p class="element"></p></td>
+                            <td id="Ar" class="noble_gas"><b><sup>18</sup>Ar</b><p class="element"></p></td>
+                        </tr>
+                        <tr>
+                            <td id="K" class="akali_metal"><b><sup>19</sup> K</b><p class="element"></p></td>
+                            <td id="Ca" class="alkaline_earth"><b><sup>20</sup>Ca</b><p class="element"></p></td>
+                            <td id="Sc" class="transition"><b><sup>21</sup>Sc</b><p class="element"></p></td>
+                            <td id="Ti" class="transition"><b><sup>22</sup>Ti</b><p class="element"></p></td>
+                            <td id="V" class="transition"><b><sup>23</sup> V</b><p class="element"></p></td>
+                            <td id="Cr" class="transition"><b><sup>24</sup>Cr</b><p class="element"></p></td>
+                            <td id="Mn" class="transition"><b><sup>25</sup>Mn</b><p class="element"></p></td>
+                            <td id="Fe" class="transition"><b><sup>26</sup>Fe</b><p class="element"></p></td>
+                            <td id="Co" class="transition"><b><sup>27</sup>Co</b><p class="element"></p></td>
+                            <td id="Ni" class="transition"><b><sup>28</sup>Ni</b><p class="element"></p></td>
+                            <td id="Cu" class="transition"><b><sup>29</sup>Cu</b><p class="element"></p></td>
+                            <td id="Zn" class="transition"><b><sup>30</sup>Zn</b><p class="element"></p></td>
+                            <td id="Ga" class="basic_metal"><b><sup>31</sup>Ga</b><p class="element"></p></td>
+                            <td id="Ge" class="semimetal"><b><sup>32</sup>Ge</b><p class="element"></p></td>
+                            <td id="As" class="semimetal"><b><sup>33</sup>As</b><p class="element"></p></td>
+                            <td id="Se" class="none_metals"><b><sup>34</sup>Se</b><p class="element"></p></td>
+                            <td id="Br" class="halogen"><b><sup>35</sup>Br</b><p class="element"></p></td>
+                            <td id="Kr" class="noble_gas"><b><sup>36</sup>Kr</b><p class="element"></p></td>
+                        </tr>
+                        <tr>
+                            <td id="Rb" class="akali_metal"><b><sup>37</sup>Rb</b><p class="element"></p></td>
+                            <td id="Sr" class="alkaline_earth"><b><sup>38</sup>Sr</b><p class="element"></p></td>
+                            <td id="Y" class="transition"><b><sup>39</sup>Y</b><p class="element"></p></td>
+                            <td id="Zr" class="transition"><b><sup>40</sup>Zr</b><p class="element"></p></td>
+                            <td id="Nb" class="transition"><b><sup>41</sup>Nb</b><p class="element"></p></td>
+                            <td id="Mo" class="transition"><b><sup>42</sup>Mo</b><p class="element"></p></td>
+                            <td id="Tc" class="transition"><b><sup>43</sup>Tc</b><p class="element"></p></td>
+                            <td id="Ru" class="transition"><b><sup>44</sup>Ru</b><p class="element"></p></td>
+                            <td id="Rh" class="transition"><b><sup>45</sup>Rh</b><p class="element"></p></td>
+                            <td id="Pd" class="transition"><b><sup>46</sup>Pd</b><p class="element"></p></td>
+                            <td id="Ag" class="transition"><b><sup>47</sup>Ag</b><p class="element"></p></td>
+                            <td id="Cd" class="transition"><b><sup>48</sup>Cd</b><p class="element"></p></td>
+                            <td id="In" class="basic_metal"><b><sup>49</sup>In</b><p class="element"></p></td>
+                            <td id="Sn" class="basic_metal"><b><sup>50</sup>Sn</b><p class="element"></p></td>
+                            <td id="Sb" class="semimetal"><b><sup>51</sup>Sb</b><p class="element"></p></td>
+                            <td id="Te" class="semimetal"><b><sup>52</sup>Te</b><p class="element"></p></td>
+                            <td id="I" class="halogen"><b><sup>53</sup> I</b><p class="element"></p></td>
+                            <td id="Xe" class="noble_gas"><b><sup>54</sup>Xe</b><p class="element"></p></td>
+                        </tr>
+                        <tr>
+                            <td id="Cs" class="akali_metal"><b><sup>55</sup>Cs</b><p class="element"></p></td>
+                            <td id="Ba" class="alkaline_earth"><b><sup>56</sup>Ba</b><p class="element"></p></td>
+                            <td class="f-position l_series">57-71</td>
+                            <td id="Hf" class="transition"><b><sup>72</sup>Hf</b><p class="element"></p></td>
+                            <td id="Ta" class="transition"><b><sup>73</sup>Ta</b><p class="element"></p></td>
+                            <td id="W" class="transition"><b><sup>74</sup>W</b><p class="element"></p></td>
+                            <td id="Re" class="transition"><b><sup>75</sup>Re</b><p class="element"></p></td>
+                            <td id="Os" class="transition"><b><sup>76</sup>Os</b><p class="element"></p></td>
+                            <td id="Ir" class="transition"><b><sup>77</sup>Ir</b><p class="element"></p></td>
+                            <td id="Pt" class="transition"><b><sup>78</sup>Pt</b><p class="element"></p></td>
+                            <td id="Au" class="transition"><b><sup>79</sup>Au</b><p class="element"></p></td>
+                            <td id="Hg" class="transition"><b><sup>80</sup>Hg</b><p class="element"></p></td>
+                            <td id="Tl" class="basic_metal"><b><sup>81</sup>Tl</b><p class="element"></p></td>
+                            <td id="Pb" class="basic_metal"><b><sup>82</sup>Pb</b><p class="element"></p></td>
+                            <td id="Bi" class="basic_metal"><b><sup>83</sup>Bi</b><p class="element"></p></td>
+                            <td id="Po" class="semimetal"><b><sup>84</sup>Po</b><p class="element"></p></td>
+                            <td id="At" class="halogen"><b><sup>85</sup>At</b><p class="element"></p></td>
+                            <td id="Rn" class="noble_gas"><b><sup>86</sup>Rn</b><p class="element"></p></td>
+                        </tr>
+                        <tr>
+                            <td id="Fr" class="akali_metal"><b><sup>87</sup>Fr</b><p class="element"></p></td>
+                            <td id="Ra" class="alkaline_earth"><b><sup>88</sup>Ra</b><p class="element"></p></td>
+                            <td class="f-position a_series">89-103</td>
+                            <td id="Rf" class="transition"><b><sup>104</sup>Rf</b><p class="element"></p></td>
+                            <td id="Db" class="transition"><b><sup>105</sup>Db</b><p class="element"></p></td>
+                            <td id="Sg" class="transition"><b><sup>106</sup>Sg</b><p class="element"></p></td>
+                            <td id="Bh" class="transition"><b><sup>107</sup>Bh</b><p class="element"></p></td>
+                            <td id="Hs" class="transition"><b><sup>108</sup>Hs</b><p class="element"></p></td>
+                            <td id="Mt" class="transition"><b><sup>109</sup>Mt</b><p class="element"></p></td>
+                            <td id="Ds" class="transition"><b><sup>110</sup>Ds</b><p class="element"></p></td>
+                            <td id="Rg" class="transition"><b><sup>111</sup>Rg</b><p class="element"></p></td>
+                            <td id="Cn" class="transition"><b><sup>112</sup>Cn</b><p class="element"></p></td>
+                            <td id="Nh" class="basic_metal"><b><sup>113</sup>Nh</b><p class="element"></p></td>
+                            <td id="Fl" class="basic_metal"><b><sup>114</sup>Fl</b><p class="element"></p></td>
+                            <td id="Mc" class="basic_metal"><b><sup>115</sup>Mc</b><p class="element"></p></td>
+                            <td id="Lv" class="basic_metal"><b><sup>116</sup>Lv</b><p class="element"></p></td>
+                            <td id="Ts" class="halogen"><b><sup>117</sup>Ts</b><p class="element"></p></td>
+                            <td id="Og" class="noble_gas"><b><sup>118</sup>Og</b><p class="element"></p></td>
+                        </tr>
+                    </table>
+                
+            </div>
+            
+            <!--latinide and actinide series i.e the F-BLOCK-->
+            <div class="f">
+                
+                    <table border="1">
+                        <tr>
+                            <td id="La" class="l_series"><b><sup>57</sup>La</b><p class="element"></p></td>
+                            <td id="Ce" class="l_series"><b><sup>58</sup>Ce</b><p class="element"></p></td>
+                            <td id="Pr" class="l_series"><b><sup>59</sup>Pr</b><p class="element"></p></td>
+                            <td id="Nd" class="l_series"><b><sup>60</sup>Nd</b><p class="element"></p></td>
+                            <td id="Pm" class="l_series"><b><sup>61</sup>Pm</b><p class="element"></p></td>
+                            <td id="Sm" class="l_series"><b><sup>62</sup>Sm</b><p class="element"></p></td>
+                            <td id="Eu" class="l_series"><b><sup>63</sup>Eu</b><p class="element"></p></td>
+                            <td id="Gd" class="l_series"><b><sup>64</sup>Gd</b><p class="element"></p></td>
+                            <td id="Tb" class="l_series"><b><sup>65</sup>Tb</b><p class="element"></p></td>
+                            <td id="Dy" class="l_series"><b><sup>66</sup>Dy</b><p class="element"></p></td>
+                            <td id="Ho" class="l_series"><b><sup>67</sup>Ho</b><p class="element"></p></td>
+                            <td id="Er" class="l_series"><b><sup>68</sup>Er</b><p class="element"></p></td>
+                            <td id="Tm" class="l_series"><b><sup>69</sup>Tm</b><p class="element"></p></td>
+                            <td id="Yb" class="l_series"><b><sup>70</sup>Yb</b><p class="element"></p></td>
+                            <td id="Lu" class="l_series"><b><sup>71</sup>Lu</b><p class="element"></p></td>
+                        </tr>
+                        <tr>
+                            <td id="Ac" class="a_series"><b><sup>89</sup>Ac</b><p class="element"></p></td>
+                            <td id="Th" class="a_series"><b><sup>90</sup>Th</b><p class="element"></p></td>
+                            <td id="Pa" class="a_series"><b><sup>91</sup>Pa</b><p class="element"></p></td>
+                            <td id="U" class="a_series"><b><sup>92</sup>U</b><p class="element"></p></td>
+                            <td id="Np" class="a_series"><b><sup>93</sup>Np</b><p class="element"></p></td>
+                            <td id="Pu" class="a_series"><b><sup>94</sup>Pu</b><p class="element"></p></td>
+                            <td id="Am" class="a_series"><b><sup>95</sup>Am</b><p class="element"></p></td>
+                            <td id="Cm" class="a_series"><b><sup>96</sup>Cm</b><p class="element"></p></td>
+                            <td id="Bk" class="a_series"><b><sup>97</sup>Bk</b><p class="element"></p></td>
+                            <td id="Cf" class="a_series"><b><sup>98</sup>Cf</b><p class="element"></p></td>
+                            <td id="Es" class="a_series"><b><sup>99</sup>Es</b><p class="element"></p></td>
+                            <td id="Fm" class="a_series"><b><sup>100</sup>Fm</b><p class="element"></p></td>
+                            <td id="Md" class="a_series"><b><sup>101</sup>Md</b><p class="element"></p></td>
+                            <td id="No" class="a_series"><b><sup>102</sup>No</b><p class="element"></p></td>
+                            <td id="Lr" class="a_series"><b><sup>103</sup>Lr</b><p class="element"></p></td>
+                        </tr>
+                    </table>            
+            </div>
+    <!-- pop ups for the elements discription -->
+            <div class="infoContainer">
+                <div class="innerContainer">
+                    HYDROGEN
+                    <br/>
+                    image of the element
+                    some properties of element both physical and chemicals
+                    refrences and links for further research on the element
+
+                </div>
+            </div>
+            <div class="infoContainer">
+                <div class="innerContainer">
+                    HELIUM
+                    <br/>
+                    image of the element
+                    some properties of element both physical and chemicals
+                    refrences and links for further research on the element
+
+                </div>
+            </div>
+            <div class="infoContainer">
+                <div class="innerContainer">
+                    LITHIUM
+                    <br/>
+                    image of the element
+                    some properties of element both physical and chemicals
+                    refrences and links for further research on the element
+
+                </div>
+            </div>
+            <div class="infoContainer">
+                <div class="innerContainer">
+                    BERILIUM
+                    <br/>
+                    image of the element
+                    some properties of element both physical and chemicals
+                    refrences and links for further research on the element
+
+                </div>
+            </div>
+            <div class="infoContainer">
+                <div class="innerContainer">
+                    BORON
+                    <br/>
+                    image of the element
+                    some properties of element both physical and chemicals
+                    refrences and links for further research on the element
+
+                </div>
+            </div>
+            <div class="infoContainer">
+                <div class="innerContainer">
+                    CARBON
+                    <br/>
+                    image of the element
+                    some properties of element both physical and chemicals
+                    refrences and links for further research on the element
+
+                </div>
+            </div>
+            <div class="infoContainer">
+                <div class="innerContainer">
+                    NITROGEN
+                    <br/>
+                    image of the element
+                    some properties of element both physical and chemicals
+                    refrences and links for further research on the element
+
+                </div>
+            </div>
+            <div class="infoContainer">
+                <div class="innerContainer">
+                    OXYGEN
+                    <br/>
+                    image of the element
+                    some properties of element both physical and chemicals
+                    refrences and links for further research on the element
+
+                </div>
+            </div>
+            <div class="infoContainer">
+                <div class="innerContainer">
+                    FLORINE
+                    <br/>
+                    image of the element
+                    some properties of element both physical and chemicals
+                    refrences and links for further research on the element
+
+                </div>
+            </div>
+            <div class="infoContainer">
+                <div class="innerContainer">
+                    NEON
+                    <br/>
+                    image of the element
+                    some properties of element both physical and chemicals
+                    refrences and links for further research on the element
+
+                </div>
+            </div>
+            <div class="infoContainer">
+                <div class="innerContainer">
+                    SOLDIUM
+                    <br/>
+                    image of the element
+                    some properties of element both physical and chemicals
+                    refrences and links for further research on the element
+
+                </div>
+            </div>
+            <div class="infoContainer">
+                <div class="innerContainer">
+                    MAGNESIUM
+                    <br/>
+                    image of the element
+                    some properties of element both physical and chemicals
+                    refrences and links for further research on the element
+
+                </div>
+            </div>
+            <div class="infoContainer">
+                <div class="innerContainer">
+                    ALLUMINIUM
+                    <br/>
+                    image of the element
+                    some properties of element both physical and chemicals
+                    refrences and links for further research on the element
+
+                </div>
+            </div>
+            <div class="infoContainer">
+                <div class="innerContainer">
+                    SILICON
+                    <br/>
+                    image of the element
+                    some properties of element both physical and chemicals
+                    refrences and links for further research on the element
+
+                </div>
+            </div>
+
+            
+        </div>
+    </body>
+</html>
