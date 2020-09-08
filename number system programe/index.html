@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Number System Programe</title>
+    <link rel="stylesheet" href="css/numbersystem.css">
+</head>
+<body>
+    <div class="container">
+        <div class="innercontainer">
+            <form>
+                <center>
+                    <h2>NUMBER SYSTEM CONVERTER</h2>
+                    <!--output/Result-->
+                    <fieldset id="output" ></fieldset>
+                    <br/>
+                    <input type="text" placeholder="enter a value here" id="input">
+                    <section>
+                        <input type="button" value="convert" class="buttons" id="convert">
+                        <input type="button" value="clear" class="buttons" id="clear">
+                    </section>
+                    <br/>
+                    <br/>
+                    <!--INPUT BUTTONS-->
+                    <fieldset> <legend>Convert From:</legend>
+                        <label>DEC<input type="radio" name="input" id="decin"></label> 
+                        <label>HEX<input type="radio" name="input" id="hexin"></label>   
+                        <label>OCT<input type="radio" name="input" id="octin"></label>
+                        <label>BIN<input type="radio" name="input" id="binin"></label>
+                    </fieldset>
+                    <br/>
+
+                    <!--OUTPUT BUTTONS-->
+                    <fieldset> <legend>Convert To:</legend>
+                    <label>DEC<input type="radio" name="output" id="decout" disabled></label> 
+                    <label>HEX<input type="radio" name="output" id="hexout" disabled></label>   
+                    <label>OCT<input type="radio" name="output" id="octout" disabled></label>
+                    <label>BIN<input type="radio" name="output" id="binout" disabled></label>
+                    </fieldset>
+                    <p id="credits">Created by Ogbuagu Francis</p>
+                </center>
+            </form> 
+        </div>
+    </div>
+    <script src="js/numbersystem.js"></script>
+</body>
+</html>
