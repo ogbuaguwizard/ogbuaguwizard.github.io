@@ -1,1 +1,1 @@
-# JS-Boss.github.io
+# wizard-js.github.io
