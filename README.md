@@ -1,4 +1,4 @@
-## wizard-js.github.io
+## ogbuaguwizard.github.io
 
 ### Hello 👋
 
