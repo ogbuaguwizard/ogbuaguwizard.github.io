@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width = device-width, initial-scale = 1.0, user-scalable = no"> 
+	<title>Mask: Pixel Perfect Collision Detection Example</title>
+	 <style>
+	   body{
+	     margin: 0;
+	     padding: 0;
+	   }
+	   #joyDiv{
+	     position:absolute ;
+	     width:100px;
+	     height:100px;
+	     margin:0;
+	   }
+	 </style>
+</head>
+<body>
+	<div id="container">
+		<canvas style="border: 1px solid blue;" id="canvas">
+			 Your browser does not support HTML5 Canvas.
+		</canvas>
+		<div id="joyDiv"></div>
+	</div>
+	<script src="joy.min.js"></script>
+	<script src="collision.js"></script>
+	<script type="module"> 
+        import Vehicle from "./objects/vehicle.js"
+        import InputHandler from "./objects/inputHandler.js"
+        import audiMask from "./objects/mask/audi.js"
+        import carMask from "./objects/mask/car.js"
+
+		let canvas = document.getElementById("canvas");
+        let ctx = canvas.getContext("2d");
+
+        let joyDiv = document.getElementById("joyDiv");   
+        
+        function init(firstCall){
+            canvas.width = innerWidth;
+            canvas.height = innerHeight;
+            joyDiv.style.top = (canvas.height - 150) + "px";
+            joyDiv.style.left = (canvas.width - 150) + "px";
+            if(!firstCall){
+                objects.forEach(object => {
+                    object.x = Math.round(object.percentageX * canvas.width);
+                    object.y = Math.round(object.percentageY * canvas.height);
+                });
+            }
+        }
+        init(true);
+
+        let objects = [];
+        let audi = new Vehicle("Audi", canvas.width/2 - 32, canvas.height - 100, 64, 64, "./assets/audi.png", 3, audiMask);
+        let car = new Vehicle("car", canvas.width/2 - 32, 100, 64, 64, "./assets/car.png", 2, carMask);
+        objects.push(audi,car);
+
+        let cntrDirection;
+        let controller = new JoyStick('joyDiv', {
+            internalFillColor : "rgba(119,119,119,0.5)",
+            internalStrokeColor : "rgba(119,119,119,0.3)",
+            externalStrokeColor : "rgba(119,119,119,0.6)"
+        }, function(stickData) {
+            cntrDirection = stickData.cardinalDirection;
+        });
+        
+        let input = new InputHandler(audi,cntrDirection);
+
+
+        window.addEventListener("resize", rearrange, false);
+        function rearrange(){
+            init();
+        } 
+
+        function run(){
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            input.update(cntrDirection)
+            objects.forEach(object => {
+                object.update(canvas,objects);
+                object.draw(ctx);
+            });
+        }
+
+        function animate(){
+            requestAnimationFrame(animate);
+            run();
+        }
+        animate();
+	</script>
+</body>
+</html>

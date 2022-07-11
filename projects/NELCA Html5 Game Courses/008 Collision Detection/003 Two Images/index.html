@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width = device-width, initial-scale = 1.0, user-scalable = no"> 
+	<title>Collision Detection: Images</title>
+	 <style>
+	   body{
+	     margin: 0;
+	     padding: 0;
+	   }
+       #canvas{
+        border: 2px solid blue;
+       }
+	 </style>
+</head>
+<body>
+	<div id="container">
+		<canvas id="canvas">
+			 Your browser does not support HTML5 Canvas.
+		</canvas>
+	</div>
+    <script>
+        let canvas = document.getElementById("canvas");
+        let ctx = canvas.getContext("2d");
+
+        //set canvas width and height
+        canvas.width = innerWidth * 0.95;
+        canvas.height = innerHeight * 0.95;
+
+		function RectsCollide(r1, r2){
+          return !(
+          r1.x > r2.x + r2.width ||
+          r1.x + r1.width < r2.x ||
+          r1.y > r2.y + r2.height ||
+          r1.y + r1.height < r2.y
+          );
+        }
+		
+		let imgToLoad = 2;
+        let imgLoaded = 0;
+
+		let img = new Image();
+		img.addEventListener('load', imgLoadedHandler, false);
+		img.src = "audi.png";
+
+		let img2 = new Image();
+		img2.addEventListener('load', imgLoadedHandler, false);
+		img2.src = "taxi.png";
+
+		function imgLoadedHandler(){
+			imgLoaded++;
+            if(imgLoaded >= imgToLoad){
+				img.removeEventListener("load", imgLoadedHandler, false);
+				img2.removeEventListener("load", imgLoadedHandler, false);
+                start();
+            }
+		}
+
+		function start(){
+			class Vehicle{
+				constructor(img,x,y,w,h,s){
+					this.img = img;
+					this.x = x;
+					this.y = y;
+					this.width = w;
+					this.height = h;
+					this.speed = s;
+				}
+				draw(){
+					ctx.drawImage(this.img,this.x,this.y,this.width,this.height);
+				}
+				update(){
+					objects.filter(item => item != this).forEach(object => {
+						if(RectsCollide(this,object)){
+							this.speed = -this.speed;
+						}
+						});
+					if(this.y + this.height > canvas.height || this.y < 0) {
+						this.speed = -this.speed;
+					}
+
+					this.y += this.speed;
+				}
+			}
+
+			let objects = [];
+			let audi = new Vehicle(img, canvas.width/2 , 100, 100, 100, 2);
+			objects.push(audi);
+			let taxi = new Vehicle(img2, canvas.width/2 , canvas.height - 100, 100, 100, 2);
+			objects.push(taxi);
+
+			function render(){
+				ctx.clearRect(0,0,canvas.width,canvas.height);
+				objects.forEach(object =>{
+					object.update()
+					object.draw();
+            	});
+			}
+			
+
+			function animate(){
+			requestAnimationFrame(animate);
+			render();
+			}
+			animate();
+		}
+        
+    </script>
+</body>
+</html>

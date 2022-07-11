@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width = device-width, initial-scale = 1.0, user-scalable = no"> 
+	<title>Collision Detection: Circle</title>
+	 <style>
+	   body{
+	     margin: 0;
+	     padding: 0;
+	   }
+       #canvas{
+        border: 2px solid blue;
+       }
+	 </style>
+</head>
+<body>
+	<div id="container">
+		<canvas id="canvas">
+			 Your browser does not support HTML5 Canvas.
+		</canvas>
+	</div>
+    <script>
+        let canvas = document.getElementById("canvas");
+        let ctx = canvas.getContext("2d");
+
+        //set canvas width and height
+        canvas.width = 600;
+        canvas.height = 400;
+
+        function circlesCollide(c1,c2){
+            let dx = c1.x - c2.x;
+            let dy = c1.y - c2.y;
+            let rSum = c1.radius + c2.radius;
+            return(dx*dx + dy*dy <= rSum*rSum);
+        }
+
+        
+        class Circle{
+            constructor (x, y, speed, radius,color){
+                this.x = x;
+                this.y = y;
+                this.speed = speed;
+                this.radius = radius;
+                this.color = color;
+            }
+            draw(){
+                ctx.fillStyle = this.color; 
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, (Math.PI/180)*0, (Math.PI/180)*360, false);
+                ctx.closePath();
+                ctx.fill();
+            }
+            update(){
+                objects.filter(item => item != this).forEach(object => {
+                    if(circlesCollide(this,object)){
+                        this.speed = -this.speed;
+                    }
+                });
+                if(this.x + this.radius > canvas.width || this.x < 0) {
+                    this.speed = -this.speed;
+                }
+
+                this.x += this.speed;
+            }
+        }
+
+        let objects = [];
+        let circle1 = new Circle(10, canvas.height/2 ,5,30,"orange");
+        objects.push(circle1);
+        let circle2 = new Circle(500, canvas.height/2 ,3,50,"purple");
+        objects.push(circle2);
+
+        function render(){
+            ctx.clearRect(0,0,canvas.width,canvas.height)
+            objects.forEach(object =>{
+                object.update()
+                object.draw();
+            });
+        }
+        
+
+        function animate(){
+        requestAnimationFrame(animate);
+        render();
+        }
+        animate();
+        
+    </script>
+</body>
+</html>

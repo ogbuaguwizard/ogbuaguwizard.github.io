@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width = device-width, initial-scale = 1.0, user-scalable = no"> 
+	<title>Collision Detection: Rectangles</title>
+	 <style>
+	   body{
+	     margin: 0;
+	     padding: 0;
+	   }
+       #canvas{
+        border: 2px solid blue;
+       }
+	 </style>
+</head>
+<body>
+	<div id="container">
+		<canvas id="canvas">
+			 Your browser does not support HTML5 Canvas.
+		</canvas>
+	</div>
+    <script>
+        let canvas = document.getElementById("canvas");
+        let ctx = canvas.getContext("2d");
+
+        //set canvas width and height
+        canvas.width = 600;
+        canvas.height = 400;
+
+
+        function RectsCollide(r1, r2){
+          return !(
+          r1.x > r2.x + r2.width ||
+          r1.x + r1.width < r2.x ||
+          r1.y > r2.y + r2.height ||
+          r1.y + r1.height < r2.y
+          );
+        }
+
+        class Paddle{
+          constructor(x,y,w,h,s,c){
+            this.x = x;
+            this.y = y;
+            this.width = w;
+            this.height = h;
+            this.speed = s;
+            this.color = c
+          }
+          draw(){
+            ctx.fillStyle = this.color;
+            ctx.fillRect(this.x,this.y,this.width,this.height);
+          }
+          update(){
+            objects.filter(item => item != this).forEach(object => {
+                    if(RectsCollide(this,object)){
+                        this.speed = -this.speed;
+                    }
+                });
+            if(this.x + this.width > canvas.width || this.x < 0) {
+                this.speed = -this.speed;
+            }
+
+            this.x += this.speed;
+          }
+        }
+        
+
+        let objects = [];
+        let paddle1 = new Paddle(10, canvas.height/2 ,100,50,4,"red");
+        objects.push(paddle1);
+        let paddle2 = new Paddle(500, canvas.height/2 ,60,60,6,"blue");
+        objects.push(paddle2);
+
+
+
+        function render(){
+            ctx.clearRect(0,0,canvas.width,canvas.height);
+            objects.forEach(object =>{
+                object.update()
+                object.draw();
+            });
+        }
+        
+
+        function animate(){
+        requestAnimationFrame(animate);
+        render();
+        }
+        animate();
+    </script>
+</body>
+</html>
