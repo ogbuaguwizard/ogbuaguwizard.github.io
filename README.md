@@ -2,5 +2,5 @@
 
 ### Hello 👋
 
-This repo contains my portfolio, and i hoist some of my work here.
-Have fun 😊
+This repo will contain my portfolio, and some of my works.
+Still under construction.
