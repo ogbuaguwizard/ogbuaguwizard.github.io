@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Brick Breaker Game</title>
+        <link rel="stylesheet" href="./css/style.css">
+    </head>
+    <body>
+        <div id="heart">
+          <img src="./assets/images/live.png" alt="live" width="20px" height="20px">
+          <p id="live"></p>
+        </div>
+        <a href="#" id="pause"></a>
+        <div id="pauseD" class="dialog">
+            <p>PAUSED</p>
+            <p><button href="#" id="play">Play</button></p>
+            <p><button href="#" id="restart">Restart</button></p>
+            <p><i>OgbuaguWizard ©2022</i></p>
+        </div>
+        <div id="menuD" class="dialog">
+            <p id="desc"></p>
+            <p><button href="#" id="start">Start</button></p>
+            <p><i>OgbuaguWizard ©2022</i></p>
+        </div>
+        <canvas id="canvas">
+            Your browser does not support HTML5 Canvas.
+        </canvas>
+        <div id="joyDiv"></div>
+
+        <script src="joy.min.js"></script>
+        <script type="module">
+            import {objects, assets, ball, bricks, input, loadAssets, loadObjects, startGame, rectsCollide, setGameState, levelCount, gameState, INIT, LOADING, READY, PLAYING, PAUSED, MISSED, OVER, COMPLETE} from "./game.js";
+
+
+            let canvas = document.getElementById("canvas");
+            let ctx = canvas.getContext("2d");
+
+            //set canvas width and height
+            canvas.width = 360;
+            canvas.height = 400;
+            
+            document.querySelector('#heart').style.top = `5px`;
+            document.querySelector('#heart').style.left = `5px`;
+            document.querySelector('#pause').style.left = `${canvas.width - 25}px`;
+            document.querySelector('#pause').style.top = `5px`;
+            Array.from(document.getElementsByClassName('dialog')).forEach(dialog =>{
+                dialog.style.left = `${canvas.width/2 - 100}px`;
+                dialog.style.top = `${canvas.height/2 - 50}px`;
+            })
+
+
+            let joyDiv = document.getElementById("joyDiv");  
+            
+            joyDiv.style.top = (canvas.height + 20) + "px";
+            joyDiv.style.left = (canvas.width/2 - 50) + "px";
+            
+            let cntrDirection;
+            let controller = new JoyStick('joyDiv', {
+                internalFillColor : "rgba(119,119,119,0.5)",
+                internalStrokeColor : "rgba(119,119,119,0.3)",
+                externalStrokeColor : "rgba(119,119,119,0.6)"
+                }, function(stickData) {
+                    cntrDirection = stickData.cardinalDirection;
+                });
+            
+            
+            document.addEventListener("click", clickHandler, false); 
+            function clickHandler(event){
+            switch(event.target){
+                case document.querySelector('#start'):
+                    document.querySelector('#heart').style.display = "block";
+                    startGame();
+                    break; 
+                case document.querySelector('#pause'):
+                    document.querySelector('#pause').style.display = "none";
+                    document.querySelector('#pauseD').style.display = "block";
+                    setGameState(PAUSED);
+                    break;
+                case document.querySelector('#play'):
+                    document.querySelector('#pause').style.display = "block";
+                    document.querySelector('#pauseD').style.display = "none";
+                    setGameState(PLAYING);
+                    break;
+                case document.querySelector('#restart'):
+                    ctx.clearRect(0,0,canvas.width,canvas.height)
+                    document.querySelector('#pauseD').style.display = "none";
+                    level =  1
+                    setGameState(LOADING);
+                    break;
+            }
+            }
+            
+            let level =  1;
+            
+            setGameState(INIT);
+            let called = false;
+            let logedState = false;
+            function run(){
+                switch (gameState) {
+                    case INIT:
+                        if(!called){
+                            loadAssets();
+                            called = true;
+                        }
+                        if(assets.every(asset => asset.ready = true)) setGameState(LOADING);
+                        break;
+                    case LOADING:
+                        if(level > levelCount){
+                            setGameState(COMPLETE);
+                        } 
+                        else{
+                            loadObjects(level);
+                            document.querySelector('#desc').textContent = `BEGIN LEVEL ${level}`;
+                        }
+                        break;
+                    case READY:
+                        document.querySelector('#menuD').style.display = "block";
+                        break;
+                    case PLAYING:
+                        if(bricks.every(brick => brick.destroyed == true)){
+                            level++;
+                            setGameState(LOADING);
+                        }
+                        else{
+                            render();
+                        } 
+                        break;
+                    case PAUSED:
+
+                        break;
+                    case MISSED:
+                        document.querySelector('#desc').textContent = `Try Again`;
+                        document.querySelector('#menuD').style.display = "block";
+                        break;
+                    case OVER:
+                        document.querySelector('#desc').textContent = `Game Over Try Again`;
+                        document.querySelector('#menuD').style.display = "block";
+                        loadObjects(level);
+                        break;
+                    case COMPLETE:
+                        level = 1;
+                        document.querySelector('#desc').textContent = `You Finished The Game`;
+                        document.querySelector('#menuD').style.display = "block";
+                        loadObjects(level);
+                        break;
+                }
+            }
+
+            function render(){
+                ctx.clearRect(0,0,canvas.width,canvas.height);
+
+                objects.forEach(object => {
+                    object.update(canvas);
+                    object.draw(ctx);
+                });
+                input.update(cntrDirection); 
+                document.querySelector('#live').textContent =  ball.live;
+            }
+
+            function animate(){
+                requestAnimationFrame(animate);
+                run();
+            }
+            animate();
+
+        </script>
+    </body>
+</html>

@@ -1,0 +1,82 @@
+body{
+    margin: 0;
+}
+#canvas{
+    border: 5px solid rgb(105, 15, 15);
+}
+#joyDiv{
+    position:absolute;
+    width:100px;
+    height:100px;
+    margin:0;
+}
+
+.dialog{
+    display: none;
+    position: absolute;
+    width: 200px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+}
+
+.dialog>p{
+    position: relative;
+    margin:3px 0;
+    padding:0 0 4px 0;
+    text-align: center ;
+    font-size:15px;
+}
+
+p>button{
+    position: relative;
+    text-decoration: none;
+    color: lightgrey;
+    font-size: 22px;
+    border:0; 
+    border-radius: 10px;
+    box-shadow: 0px 0px 7px 1px black;
+    background:#2b3129;
+    width: 90%;  
+}
+
+#pause{
+    display: none;
+    position: absolute;
+    z-index: 200;
+    background: rgba(189, 173, 173, 0.4) no-repeat center url(../assets/images/pause.png);
+    background-size: 22px 22px;
+    height:30px;
+    width:30px;
+    border-radius: 20%;
+}
+
+#start{
+    background: #2b3129 no-repeat  url(../assets/images/play.png);
+    background-size: auto 100%;
+    cursor: pointer;
+}
+#play{
+    background: #2b3129 no-repeat  url(../assets/images/play.png);
+    background-size: auto 100%;
+    cursor: pointer;
+}
+#restart{
+    background: #2b3129 no-repeat  url(../assets/images/reset.png);
+    background-size: auto 100%;
+    cursor: pointer;
+}
+#heart{
+    position: absolute;
+    display: none;
+    height: 20px;
+}
+#live{
+  position: fixed;
+  display: inline;
+  font-size: 17px;
+  font-weight: bold;
+  margin: 1px 0 0 7px;
+}
+
+
+
