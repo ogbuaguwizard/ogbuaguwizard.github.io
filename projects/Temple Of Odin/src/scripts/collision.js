@@ -57,7 +57,7 @@ export default function collide(o1, o2,bound) {
         //get the imageData
         let o1ImageData = cx.getImageData(o1.x,o1.y,o1.width,o1.height);
         let o2ImageData = cx.getImageData(o2.x,o2.y,o2.width,o2.height);
-        cx.clearRect(0,0,canvas.width,canvas.height);
+        //cx.clearRect(0,0,canvas.width,canvas.height);
         // pixel collision
         for(let i = cBounding.x; i < cBounding.width; i++){
             for(let j = cBounding.y; j < cBounding.height; j++){
