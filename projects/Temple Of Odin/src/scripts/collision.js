@@ -45,6 +45,8 @@ export default function collide(o1, o2,bound) {
                 collisionSide = "right";
             }
         }
+        
+        console.log('yo');
         //create a defferent canvas element
         let c = document.createElement('canvas');
         c.width = innerWidth;
