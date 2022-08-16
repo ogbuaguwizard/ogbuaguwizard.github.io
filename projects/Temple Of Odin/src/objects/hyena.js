@@ -123,7 +123,7 @@ export default class Hyena{
             if(this.direction == "forward")this.animation.index--;
         }
 
-        let collisionDetails = collide(this,human,{x:45,y:0});
+        let collisionDetails = collide(this,human);
         if(collisionDetails && collisionDetails.type == 'pixel'){
                 console.log('pixel')
         }
