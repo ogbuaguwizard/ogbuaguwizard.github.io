@@ -1,4 +1,3 @@
-## ogbuaguwizard.github.io
 
 <!-- PROFILE HEADER -->
 <h1 align="center">👋 Hi there, I'm <span style="color:#2f81f7;">Francis Ogbuagu</span></h1>
